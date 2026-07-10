@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/admin",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Open the admin menu for managing services, gallery, reviews, and appointments"
+            }
+          }
+        ],
+        "send": {
+          "text": "/admin"
+        }
+      }
+    ]
+  }
+]
