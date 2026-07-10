@@ -1,19 +1,17 @@
 [
   {
-    "name": "Book Appointment",
+    "name": "Book Appointment shows empty state when no services",
     "steps": [
       {
+        "send": { "callback": "booking:start" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Start the guided booking flow to select service, date, time, and client details"
+              "text": "No services available yet — check back soon!"
             }
           }
-        ],
-        "send": {
-          "callback": "booking:start"
-        }
+        ]
       }
     ]
   }

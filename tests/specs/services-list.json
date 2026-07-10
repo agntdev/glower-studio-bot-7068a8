@@ -1,19 +1,26 @@
 [
   {
-    "name": "Browse Services",
+    "name": "Browse Services shows empty state",
     "steps": [
       {
+        "send": { "callback": "services:list" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "View a list of available services by category"
+              "text": "No services available yet — check back soon!"
             }
           }
-        ],
-        "send": {
-          "callback": "services:list"
-        }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Help menu button shows help text",
+    "steps": [
+      {
+        "send": { "callback": "menu:help" },
+        "expect": [{ "method": "editMessageText" }]
       }
     ]
   }

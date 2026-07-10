@@ -1,19 +1,15 @@
 [
   {
-    "name": "View Appointments",
+    "name": "View Appointments shows no access for non-admin",
     "steps": [
       {
+        "send": { "callback": "admin:appointments" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "List upcoming bookings and manage their status"
-            }
+            "method": "answerCallbackQuery",
+            "payload": { "text": "No access" }
           }
-        ],
-        "send": {
-          "callback": "admin:appointments"
-        }
+        ]
       }
     ]
   }

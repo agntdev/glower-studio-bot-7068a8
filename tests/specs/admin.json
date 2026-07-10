@@ -1,19 +1,17 @@
 [
   {
-    "name": "/admin",
+    "name": "/admin shows access denied for non-admin users",
     "steps": [
       {
+        "send": { "text": "/admin" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Open the admin menu for managing services, gallery, reviews, and appointments"
+              "text": "You don't have admin access."
             }
           }
-        ],
-        "send": {
-          "text": "/admin"
-        }
+        ]
       }
     ]
   }

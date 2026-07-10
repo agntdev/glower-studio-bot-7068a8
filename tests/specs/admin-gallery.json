@@ -1,19 +1,15 @@
 [
   {
-    "name": "Manage Gallery",
+    "name": "Manage Gallery shows no access for non-admin",
     "steps": [
       {
+        "send": { "callback": "admin:gallery" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Add or delete photos with captions and service associations"
-            }
+            "method": "answerCallbackQuery",
+            "payload": { "text": "No access" }
           }
-        ],
-        "send": {
-          "callback": "admin:gallery"
-        }
+        ]
       }
     ]
   }

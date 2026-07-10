@@ -6,7 +6,38 @@ import { createBot, type BotContext } from "./toolkit/index.js";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  // Flow steps
+  step?: string;
+
+  // Booking flow
+  bookingServiceId?: string;
+  bookingDate?: string;
+  bookingTime?: string;
+  bookingStaff?: string;
+  bookingName?: string;
+  bookingPhone?: string;
+
+  // Review flow
+  reviewAppointmentId?: string;
+  reviewRating?: number;
+  reviewText?: string;
+  reviewPhotos?: string[];
+
+  // Admin service management flow
+  adminServiceStep?: string;
+  adminServiceId?: string;
+  adminServiceName?: string;
+  adminServiceDesc?: string;
+  adminServicePrice?: number;
+  adminServiceDuration?: number;
+  adminServiceCategories?: string[];
+
+  // Admin gallery management flow
+  adminGalleryStep?: string;
+  adminGalleryPhotoId?: string;
+  adminGalleryCaption?: string;
+  adminGalleryTags?: string[];
+  adminGalleryServiceId?: string;
 }
 
 export type Ctx = BotContext<Session>;

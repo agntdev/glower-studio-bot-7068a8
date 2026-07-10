@@ -1,19 +1,15 @@
 [
   {
-    "name": "Manage Reviews",
+    "name": "Manage Reviews shows no access for non-admin",
     "steps": [
       {
+        "send": { "callback": "admin:reviews" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "View and respond to client reviews"
-            }
+            "method": "answerCallbackQuery",
+            "payload": { "text": "No access" }
           }
-        ],
-        "send": {
-          "callback": "admin:reviews"
-        }
+        ]
       }
     ]
   }
