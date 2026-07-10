@@ -1,0 +1,20 @@
+[
+  {
+    "name": "View Gallery",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "View a paginated photo gallery with captions and service/category filters"
+            }
+          }
+        ],
+        "send": {
+          "callback": "gallery:list"
+        }
+      }
+    ]
+  }
+]
