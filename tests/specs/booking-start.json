@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Book Appointment",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Start the guided booking flow to select service, date, time, and client details"
+            }
+          }
+        ],
+        "send": {
+          "callback": "booking:start"
+        }
+      }
+    ]
+  }
+]
