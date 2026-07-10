@@ -1,15 +1,22 @@
 import { Composer } from "grammy";
+import type { Ctx } from "../bot.js";
+import { inlineButton, inlineKeyboard } from "../toolkit/index.js";
+import { isAdmin } from "../storage.js";
 
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-
-const composer = new Composer();
+const composer = new Composer<Ctx>();
 
 composer.command("admin", async (ctx) => {
-  await ctx.reply("Open the admin menu for managing services, gallery, reviews, and appointments");
+  if (!ctx.from || !isAdmin(ctx.from.id)) {
+    await ctx.reply("You don't have admin access.");
+    return;
+  }
+
+  await ctx.reply("🔧 Admin Panel", {
+    reply_markup: inlineKeyboard([
+      [inlineButton("💅 Manage Services", "admin:services"), inlineButton("🖼️ Manage Gallery", "admin:gallery")],
+      [inlineButton("📝 Manage Reviews", "admin:reviews"), inlineButton("📅 View Appointments", "admin:appointments")],
+    ]),
+  });
 });
 
 export default composer;

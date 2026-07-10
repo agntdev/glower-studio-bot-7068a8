@@ -1,19 +1,17 @@
 [
   {
-    "name": "Read Reviews",
+    "name": "Read Reviews shows empty state",
     "steps": [
       {
+        "send": { "callback": "reviews:list" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "View customer reviews with star ratings and optional photos"
+              "text": "No reviews yet — be the first to share your experience!"
             }
           }
-        ],
-        "send": {
-          "callback": "reviews:list"
-        }
+        ]
       }
     ]
   }

@@ -1,19 +1,15 @@
 [
   {
-    "name": "Manage Services",
+    "name": "Manage Services shows no access for non-admin",
     "steps": [
       {
+        "send": { "callback": "admin:services" },
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "Create, edit, or delete services and prices"
-            }
+            "method": "answerCallbackQuery",
+            "payload": { "text": "No access" }
           }
-        ],
-        "send": {
-          "callback": "admin:services"
-        }
+        ]
       }
     ]
   }

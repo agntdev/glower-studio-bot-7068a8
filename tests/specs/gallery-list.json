@@ -1,19 +1,17 @@
 [
   {
-    "name": "View Gallery",
+    "name": "View Gallery shows empty state",
     "steps": [
       {
+        "send": { "callback": "gallery:list" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "View a paginated photo gallery with captions and service/category filters"
+              "text": "No photos yet — our gallery is being curated!"
             }
           }
-        ],
-        "send": {
-          "callback": "gallery:list"
-        }
+        ]
       }
     ]
   }

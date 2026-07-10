@@ -1,19 +1,17 @@
 [
   {
-    "name": "Submit Review",
+    "name": "Submit Review shows empty state when no completed appointments",
     "steps": [
       {
+        "send": { "callback": "review:start" },
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Submit a post-visit review with star rating and optional photos"
+              "text": "You don't have any completed appointments to review yet. Book one first!"
             }
           }
-        ],
-        "send": {
-          "callback": "review:start"
-        }
+        ]
       }
     ]
   }

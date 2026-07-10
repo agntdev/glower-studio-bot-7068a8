@@ -7,7 +7,21 @@
         "expect": [
           {
             "method": "sendMessage",
-            "payload": { "text": "👋 Welcome! Tap a button below to get started." }
+            "payload": { "text": "👋 Welcome to GlowEr Beauty Studio! Tap a button below to get started." }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Back to menu re-renders welcome",
+    "steps": [
+      {
+        "send": { "callback": "menu:main" },
+        "expect": [
+          {
+            "method": "editMessageText",
+            "payload": { "text": "👋 Welcome to GlowEr Beauty Studio! Tap a button below to get started." }
           }
         ]
       }
